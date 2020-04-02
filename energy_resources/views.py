@@ -1,12 +1,14 @@
 from .serializers import EnergyResourceSerializer, UserSerializer
-from rest_framework import generics
+from rest_framework import generics, permissions
 from .models import EnergyResource
-from django.contrib.auth import get_user_model 
+from django.contrib.auth import get_user_model
+from .permissions import IsOwnerOrReadOnly
 
 
 class EnergyResourcesList(generics.ListCreateAPIView):
     queryset = EnergyResource.objects.all()
     serializer_class = EnergyResourceSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -15,7 +17,8 @@ class EnergyResourcesList(generics.ListCreateAPIView):
 class EnergyResourceDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = EnergyResource.objects.all()
     serializer_class = EnergyResourceSerializer
-
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
 
 class UsersList(generics.ListAPIView):
