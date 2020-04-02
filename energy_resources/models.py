@@ -7,4 +7,4 @@ class EnergyResource(models.Model):
     status = models.CharField(max_length=40)
     capacity = models.FloatField()
     owner = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
+        settings.AUTH_USER_MODEL, related_name='energy_resources', on_delete=models.CASCADE,)
