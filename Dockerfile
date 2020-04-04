@@ -6,11 +6,11 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set work directory
-WORKDIR /EEnergy
+WORKDIR /EEnergy_backend
 
 # Install dependencies
-COPY Pipfile Pipfile.lock /EEnergy/
+COPY Pipfile Pipfile.lock /EEnergy_backend/
 RUN pip install pipenv && pipenv install --system
 
 # Copy project
-COPY . /EEnergy/
+COPY . /EEnergy_backend/
