@@ -1,1 +1,0 @@
-energy_resource.owne
