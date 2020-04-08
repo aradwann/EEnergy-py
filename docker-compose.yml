@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  db:
+    image: kartoza/postgis:9.6-2.4
+    volumes:
+      - ./pg/postgres_data:/var/lib/postgresql
+      - ./pg/setup_data:/home/setup
+    environment:
+      POSTGRES_USER: user001
+      POSTGRES_PASS: 123456789
+      POSTGRES_PORT: 5432
+      POSTGRES_DBNAME: gis
+
+  web:
+    build: .
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
