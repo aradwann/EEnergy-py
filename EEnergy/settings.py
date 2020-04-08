@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.gis',
 
     # 3rd party
     'rest_framework',
@@ -88,8 +89,12 @@ WSGI_APPLICATION = 'EEnergy.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'postgis',
+        'USER': 'user001',
+        'PASSWORD': '123456789',
+        'HOST': 'gis',
+        'PORT': '5452'
     }
 }
 
