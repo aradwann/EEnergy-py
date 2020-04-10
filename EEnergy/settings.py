@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     # 3rd party
     'rest_framework',
+    'rest_framework_gis',
     'rest_framework.authtoken',
     'allauth', 
     'allauth.account', 

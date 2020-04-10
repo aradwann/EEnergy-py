@@ -11,8 +11,8 @@ django = "*"
 django-rest-framework = "*"
 django-rest-auth = "*"
 django-allauth = "*"
-allauth = "*"
 psycopg2 = "*"
+djangorestframework-gis = "*"
 
 [requires]
 python_version = "3.7"
