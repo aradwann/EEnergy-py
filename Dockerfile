@@ -15,5 +15,9 @@ RUN pip install pipenv
 COPY Pipfile Pipfile.lock /code/
 RUN pipenv install --system
 
+# Setup GDAL
+RUN apt-get update &&\
+    apt-get install -y binutils libproj-dev gdal-bin python-gdal python3-gdal
+
 # Copy project
 COPY . /code/

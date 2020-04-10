@@ -12,6 +12,7 @@ django-rest-framework = "*"
 django-rest-auth = "*"
 django-allauth = "*"
 allauth = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.7"

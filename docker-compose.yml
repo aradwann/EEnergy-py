@@ -1,16 +1,19 @@
 version: "3.7"
 
 services:
-  db:
-    image: kartoza/postgis:9.6-2.4
-    volumes:
-      - ./pg/postgres_data:/var/lib/postgresql
-      - ./pg/setup_data:/home/setup
+  postgis:
+    image: kartoza/postgis:12.0
     environment:
-      POSTGRES_USER: user001
-      POSTGRES_PASS: 123456789
-      POSTGRES_PORT: 5432
-      POSTGRES_DBNAME: gis
+      # If you need to create multiple database you can add coma separated databases eg gis,data
+      - POSTGRES_DB=gis
+      - POSTGRES_USER=docker
+      - POSTGRES_PASS=docker
+      # Add extensions you need to be enabled by default in the DB. Default are the three specified below
+      - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore,postgis_topology
+    
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
 
   web:
     build: .
@@ -20,4 +23,9 @@ services:
     ports:
       - 8000:8000
     depends_on:
-      - db
+      - postgis
+    links: 
+      - postgis:postgis
+
+volumes:
+  postgres_data:

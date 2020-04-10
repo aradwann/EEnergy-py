@@ -25,7 +25,7 @@ SECRET_KEY = 'c6k#!03*m!&9jo7+q(p$t4xryd***@(ist2z7&km6ql=pnb2pv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -90,11 +90,11 @@ WSGI_APPLICATION = 'EEnergy.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'postgis',
-        'USER': 'user001',
-        'PASSWORD': '123456789',
-        'HOST': 'gis',
-        'PORT': '5452'
+        'NAME': 'gis',
+        'USER': 'docker',
+        'PASSWORD': 'docker',
+        'HOST': 'postgis',
+        'PORT': 5432
     }
 }
 

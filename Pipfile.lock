@@ -1,11 +1,7 @@
 {
     "_meta": {
         "hash": {
-<<<<<<< HEAD
-            "sha256": "e3c6bd698b0e6468a2b9cfd7bf5612fd5d003e0c1e2c5f5dd3e6b92b93b73be0"
-=======
             "sha256": "635dddf52c0cdc76dae71818dcea1d94da7fdc1fd03b90c61602ee8633245bf3"
->>>>>>> e43d43a3014a4f2b6fbba246ba7a2b4427a16532
         },
         "pipfile-spec": 6,
         "requires": {
@@ -29,17 +25,10 @@
         },
         "certifi": {
             "hashes": [
-<<<<<<< HEAD
-                "sha256:1d987a998c75633c40847cc966fcf5904906c920a7f17ef374f5aa4282abd304",
-                "sha256:51fcb31174be6e6664c5f69e3e1691a2d72a1a12e90f872cbdb1567eb47b6519"
-            ],
-            "version": "==2020.4.5.1"
-=======
                 "sha256:017c25db2a153ce562900032d5bc68e9f191e44e9a0f762f373977de9df1fbb3",
                 "sha256:25b64c7da4cd7479594d035c08c2d809eb4aab3a26e5a990ea98cc450c320f1f"
             ],
             "version": "==2019.11.28"
->>>>>>> e43d43a3014a4f2b6fbba246ba7a2b4427a16532
         },
         "chardet": {
             "hashes": [
@@ -105,8 +94,6 @@
             ],
             "version": "==3.1.0"
         },
-<<<<<<< HEAD
-=======
         "psycopg2-binary": {
             "hashes": [
                 "sha256:040234f8a4a8dfd692662a8308d78f63f31a97e1c42d2480e5e6810c48966a29",
@@ -145,7 +132,6 @@
             "index": "pypi",
             "version": "==2.8.4"
         },
->>>>>>> e43d43a3014a4f2b6fbba246ba7a2b4427a16532
         "python3-openid": {
             "hashes": [
                 "sha256:0086da6b6ef3161cfe50fb1ee5cceaf2cda1700019fda03c2c5c440ca6abe4fa",
