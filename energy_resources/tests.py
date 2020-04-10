@@ -1,6 +1,6 @@
 from django.test import TestCase
 from .models import EnergyResource
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 
 
 class EnergyResourcesModelTests(TestCase):
@@ -8,7 +8,7 @@ class EnergyResourcesModelTests(TestCase):
     @classmethod
     def setUpTestData(cls):
         # create a test user
-        test_user1 = User.objects.create_user(
+        test_user1 = get_user_model().objects.create_user(
             username="testuser", password="testpassword")
         test_user1.save()
 

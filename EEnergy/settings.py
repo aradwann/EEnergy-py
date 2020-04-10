@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.gis',
+    
+    # local
+    'users.apps.UsersConfig',
+    'energy_resources',
 
     # 3rd party
     'rest_framework',
@@ -50,8 +54,8 @@ INSTALLED_APPS = [
     'rest_auth',
     'rest_auth.registration',
 
-    # local
-    'energy_resources',
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -150,3 +154,5 @@ REST_FRAMEWORK = {
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
 
 SITE_ID = 1
+
+AUTH_USER_MODEL = 'users.CustomUser'
