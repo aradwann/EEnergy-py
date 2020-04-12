@@ -1,5 +1,5 @@
 from django.contrib.gis.db import models
-from django.conf import settings
+from django.contrib.auth import get_user_model
 
 
 class EnergyResource(models.Model):
@@ -8,4 +8,7 @@ class EnergyResource(models.Model):
     capacity = models.FloatField()
     location = models.PointField()
     owner = models.ForeignKey(
-        settings.AUTH_USER_MODEL, related_name='energy_resources', on_delete=models.CASCADE,)
+        get_user_model(), related_name='energy_resources', on_delete=models.CASCADE,)
+
+    def __str__(self):
+        return f'{self.owner.username}\'s {self.resource_type}'
