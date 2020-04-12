@@ -10,12 +10,3 @@ class EnergyResourceSerializer(serializers.ModelSerializer):
         model = EnergyResource
         fields = ['id', 'resource_type',
                   'status', 'location', 'capacity', 'owner']
-
-
-class UserSerializer(serializers.ModelSerializer):
-    energy_resources = serializers.PrimaryKeyRelatedField(
-        many=True, queryset=EnergyResource.objects.all())
-
-    class Meta:
-        model = get_user_model()
-        fields = ['id', 'username', 'energy_resources']

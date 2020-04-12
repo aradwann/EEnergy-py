@@ -1,6 +1,7 @@
 from django.test import TestCase
 from .models import EnergyResource
 from django.contrib.auth import get_user_model
+from django.contrib.gis.geos import Point, GEOSGeometry
 
 
 class EnergyResourcesModelTests(TestCase):
@@ -13,9 +14,10 @@ class EnergyResourcesModelTests(TestCase):
         test_user1.save()
 
         # create a test energy resource
+        pnt = Point(954158.1, 4215137.1)
 
         test_energy_resource = EnergyResource.objects.create(
-            owner=test_user1, resource_type="wind", status="active", capacity=152)
+            owner=test_user1, location=pnt, resource_type="wind", status="active", capacity=152)
 
         test_energy_resource.save()
 
