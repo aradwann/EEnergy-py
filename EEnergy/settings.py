@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # local
     'users.apps.UsersConfig',
     'energy_resources',
+    'articles',
 
     # 3rd party
     'rest_framework',
