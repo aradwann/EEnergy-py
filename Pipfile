@@ -13,6 +13,7 @@ django-rest-auth = "*"
 django-allauth = "*"
 psycopg2 = "*"
 djangorestframework-gis = "*"
+autopep8 = "*"
 
 [requires]
 python_version = "3.7"
