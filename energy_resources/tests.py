@@ -16,26 +16,6 @@ class EnergyResourcesModelTests(APITestCase):
             username="testuser", password="testpassword")
         test_user1.save()
 
-        # create a test energy resource
-        pnt = Point(-8.789062498776527, 8.146242823908073)
-        # test_energy_resource = EnergyResource.objects.create(
-        # owner=test_user1, location=pnt, resource_type="wind", status="active", capacity=152)
-
-        # test_energy_resource.save()
-    '''
-    def test_energy_resource_content(self):
-        energy_resource = EnergyResource.objects.get(id=1)
-        owner = f'{energy_resource.owner}'
-        status = f'{energy_resource.status}'
-        resource_type = f'{energy_resource.resource_type}'
-        capacity = f'{energy_resource.capacity}'
-
-        self.assertEqual(owner, 'testuser')
-        self.assertEqual(resource_type, 'wind')
-        self.assertEqual(status, 'active')
-        self.assertEqual(capacity, '152.0')
-    '''
-
     def test_create_energy_resource(self):
         """
         Ensure we can create a new energy_resource object.
@@ -57,10 +37,12 @@ class EnergyResourcesModelTests(APITestCase):
 
 
         }
-        #token = Token.objects.get(user__username='testuser')
-        #self.client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
-        self.client.login(username='testuser', password='testpassword')
+
+        token = Token.objects.get(user__username='testuser')
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
+
         response = self.client.post(url, data, format='json')
+
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(EnergyResource.objects.count(), 1)
         self.assertEqual(
