@@ -3,6 +3,8 @@ version: "3.7"
 services:
   postgis:
     image: kartoza/postgis:12.0
+    volumes:
+      - postgis-data:/var/lib/postgresql
     environment:
       # If you need to create multiple database you can add coma separated databases eg gis,data
       - POSTGRES_DB=gis
@@ -11,9 +13,9 @@ services:
       # Add extensions you need to be enabled by default in the DB. Default are the three specified below
       - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore,postgis_topology
     
+    restart: on-failure
 
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
+    
 
   web:
     build: .
@@ -28,4 +30,4 @@ services:
       - postgis:postgis
 
 volumes:
-  postgres_data:
+  postgis-data:
