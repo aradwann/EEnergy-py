@@ -34,7 +34,7 @@ class EnergyResourcesModelTests(APITestCase):
                 ]
             },
             "capacity": 18.0,
-
+            "consumption": 12.0,
 
         }
 
@@ -50,5 +50,7 @@ class EnergyResourcesModelTests(APITestCase):
         self.assertEqual(EnergyResource.objects.get().status, 'active')
         self.assertEqual(EnergyResource.objects.get().location.json, pnt.json)
         self.assertEqual(EnergyResource.objects.get().capacity, 18.0)
+        self.assertEqual(EnergyResource.objects.get().consumption, 12.0)
+        self.assertEqual(EnergyResource.objects.get().net_energy, 6.0)
         self.assertEqual(
             EnergyResource.objects.get().owner.username, 'testuser')
