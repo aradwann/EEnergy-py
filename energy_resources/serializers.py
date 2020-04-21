@@ -9,4 +9,4 @@ class EnergyResourceSerializer(serializers.ModelSerializer):
     class Meta:
         model = EnergyResource
         fields = ['id', 'resource_type',
-                  'status', 'location', 'capacity', 'owner']
+                  'status', 'location', 'capacity', 'consumption', 'owner']
