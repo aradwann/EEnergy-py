@@ -14,6 +14,7 @@ django-allauth = "*"
 psycopg2 = "*"
 djangorestframework-gis = "*"
 autopep8 = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.7"
