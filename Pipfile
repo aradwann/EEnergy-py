@@ -5,17 +5,17 @@ verify_ssl = true
 
 [dev-packages]
 pytest = "*"
+flake8 = "*"
+coverage = "*"
+django-debug-toolbar = "*"
 
 [packages]
 django = "*"
 django-rest-framework = "*"
 django-rest-auth = "*"
 django-allauth = "*"
-psycopg2 = "*"
+psycopg2-binary = "*"
 djangorestframework-gis = "*"
-autopep8 = "*"
-coverage = "*"
-django-debug-toolbar = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
