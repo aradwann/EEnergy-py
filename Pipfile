@@ -8,6 +8,7 @@ pytest = "*"
 flake8 = "*"
 coverage = "*"
 django-debug-toolbar = "*"
+autopep8 = "*"
 
 [packages]
 django = "*"

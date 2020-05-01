@@ -1,9 +1,8 @@
 from .models import Article
 from django.contrib.auth import get_user_model
-from django.urls import include, path, reverse
-from rest_framework.test import APITestCase, URLPatternsTestCase, APIClient
+from django.urls import reverse
+from rest_framework.test import APITestCase
 from rest_framework import status
-from rest_framework.authtoken.models import Token
 
 
 class ArticlesModelTests(APITestCase):
@@ -23,7 +22,7 @@ class ArticlesModelTests(APITestCase):
         data = {
             "title": "wind farm",
             "body": "active",
-            "comments":[]
+            "comments": []
         }
 
         self.client.login(username='testuser', password='testpassword')

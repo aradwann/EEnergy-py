@@ -18,5 +18,3 @@ class EnergyResourceDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = EnergyResourceSerializer
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
-
-
