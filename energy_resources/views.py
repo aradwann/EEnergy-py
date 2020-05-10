@@ -1,5 +1,5 @@
 from .serializers import EnergyResourceSerializer
-from rest_framework import generics, permissions
+from rest_framework import generics
 from .models import EnergyResource
 from .permissions import IsOwnerOrReadOnly
 
@@ -7,7 +7,6 @@ from .permissions import IsOwnerOrReadOnly
 class EnergyResourcesList(generics.ListCreateAPIView):
     queryset = EnergyResource.objects.all()
     serializer_class = EnergyResourceSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -16,5 +15,4 @@ class EnergyResourcesList(generics.ListCreateAPIView):
 class EnergyResourceDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = EnergyResource.objects.all()
     serializer_class = EnergyResourceSerializer
-    permission_classes = [
-        permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+    permission_classes = [IsOwnerOrReadOnly, ]
