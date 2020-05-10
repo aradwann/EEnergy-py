@@ -25,7 +25,7 @@ urlpatterns = [
          include('rest_auth.registration.urls')),
     path('api/v1/energy-resources/', include('energy_resources.urls')),
     path('api/v1/users/', include('users.urls')),
-    path('api/v1/articles/', include('articles.urls')),
+
 ]
 
 if settings.DEBUG:
