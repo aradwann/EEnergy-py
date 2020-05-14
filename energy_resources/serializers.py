@@ -3,8 +3,8 @@ from .models import EnergyResource
 
 
 class EnergyResourceSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source='owner.username')
-    net_energy = serializers.ReadOnlyField()
+    """Model serializer for energy resource instance"""
+    owner = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
         model = EnergyResource
@@ -12,3 +12,4 @@ class EnergyResourceSerializer(serializers.ModelSerializer):
                   'status', 'location',
                   'capacity', 'consumption',
                   'net_energy', 'owner']
+        read_only_fields = ['id', 'owner', 'net_energy']

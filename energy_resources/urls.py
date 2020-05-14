@@ -1,9 +1,14 @@
-from django.urls import path
-from .views import EnergyResourcesList, EnergyResourceDetail
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+
+from . import views
+
+
+router = DefaultRouter()
+router.register('energy-resources', views.EnergyResourcesViewSet,
+                basename='energy-resource')
+
 
 urlpatterns = [
-    path('', EnergyResourcesList.as_view(), name='energy-resources-list'),
-    path('<int:pk>/', EnergyResourceDetail.as_view(),
-         name='energy-resource-details'),
-
+    path('', include(router.urls))
 ]

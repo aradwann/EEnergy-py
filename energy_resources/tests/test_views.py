@@ -7,12 +7,13 @@ from ..models import EnergyResource
 from ..serializers import EnergyResourceSerializer
 from django.contrib.gis.geos import Point
 
-ENERGY_RESOURCES_LIST_URL = reverse('energy-resources-list')
+ENERGY_RESOURCES_LIST_URL = reverse('energy-resource-list')
 
 
 def detail_url(resource_id):
     """return resource detail url"""
-    return reverse('energy-resource-details', args=[resource_id])
+    return reverse('energy-resource-detail',
+                   args=[resource_id])
 
 
 def sample_resource(owner, *args):
@@ -51,14 +52,14 @@ class EnergyResourcePublicAPITests(TestCase):
         object with a valid payload and unauthenticated user
         """
 
-        url = reverse('energy-resources-list')
         payload = {"resource_type": "wind farm",
                    "status": "active",
                    "location": Point(2, 3).json,
                    "capacity": 18.0,
                    "consumption": 12.0,
                    }
-        response = self.client.post(url, payload, format='json')
+        response = self.client.post(
+            ENERGY_RESOURCES_LIST_URL, payload, format='json')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
 
@@ -91,7 +92,7 @@ class EnergyResourcePrivateAPITests(TestCase):
         response = self.client.post(
             ENERGY_RESOURCES_LIST_URL, payload, format='json')
         resource = EnergyResource.objects.filter(
-            owner=self.user, resource_type=payload['resource_type'])
+            owner=self.user, location=payload['location'])
         exists = resource.exists()
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertTrue(exists)
