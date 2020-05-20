@@ -5,10 +5,10 @@ from . import views
 
 
 router = DefaultRouter()
-router.register('energy-resources', views.EnergyResourcesViewSet,
+router.register('', views.EnergyResourcesViewSet,
                 basename='energy-resource')
 
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
 ]
